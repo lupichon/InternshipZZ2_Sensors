@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Data Visualisation</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" href="{% static 'IMAGES/icons/favicon.ico' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'FONT/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'FONT/iconic/css/material-design-iconic-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'CSS/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'CSS/main.css' %}">
+</head>
+<body>
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('{% static "IMAGES/bg-01.jpg" %}');">
+			<div class="wrap-login100">
+                <span class="login100-form-title p-b-34 p-t-27" style="color: white; font-size: 10px">
+                    <strong>last session ID: <span id="lastSession"></span> </strong>
+                </span>
+
+                <span class="login100-form-logo">
+                    <img src="{% static 'IMAGES/shoot.png' %}" alt="Votre image alternative" width="100" height="100">
+                </span>
+
+                {% for message in messages %}
+                    <span class="login100-form-title p-b-34 p-t-27" style="color: black; font-size: 12px;">
+                        <strong>{{ message }}</strong>
+                    </span>
+                {% endfor %}
+                
+                <form method="post" action="/data_visualisation/visualisation">
+                    {% csrf_token %}
+                    <div class="wrap-input100 validate-input" data-validate="Enter session id">
+                        <input class="input100" type="text" name="sessionID" placeholder="Enter session id">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter shot ID">
+                        <input class="input100" type="text" name="shotID" placeholder="Enter shot ID">
+                        <span class="focus-input100"></span>
+                    </div>
+                    
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            Start
+                        </button>
+                    </div>
+                </form>
+			</div>
+		</div>
+	</div>
+	<div id="dropDownSelect1"></div>
+	<script>
+        var lastID = '{{ lastID }}';
+        localStorage.setItem('lastSession', lastID);
+        document.getElementById('lastSession').innerText = localStorage.getItem('lastSession');
+    </script>
+	<script src="{% static 'JS/main.js' %}"></script>
+</body>
+</html>

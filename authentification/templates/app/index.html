@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>10-Meter Air Rifle Shooting</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" type="image/png" href="{% static 'IMAGES/icons/favicon.ico' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'FONT/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'FONT/iconic/css/material-design-iconic-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'CSS/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'CSS/main.css' %}">
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="container-login100" style="background-image: url('{% static "IMAGES/bg-01.jpg" %}');">
+			<div class="wrap-login100">
+                    <span class="login100-form-logo">
+						<img src="{% static 'IMAGES/shoot.png' %}" alt="Votre image alternative" width="100" height="100">
+					</span>
+                    {% if user.is_authenticated %}
+                        <span class="login100-form-title p-b-34 p-t-27" style="color: black; font-size: 18px;">
+                            <strong> Hello {{firstname}} !!! </strong>
+                        </span>
+                        {% for message in messages %}
+                            <span class="login100-form-title p-b-34 p-t-27" style="color: black; font-size: 12px;">
+                                <strong>{{ message }}</strong>
+                            </span>
+                        {% endfor %}
+
+                        <div class="container-login100-form-btn">
+                            <form action="{% url 'connectSensors' %}" method="post" style="display: inline-block;">
+                                {% csrf_token %}
+                                <button class="login100-form-btn" style="width: 80px; height: 40px; font-size: 12px;">
+                                    Connect Sensors
+                                </button>
+                            </form>
+                            <form action="{% url 'connectWiiboard' %}" method="post" style="display: inline-block; margin-left: 15px;">
+                                {% csrf_token %}
+                                <button class="login100-form-btn" style="width: 80px; height: 40px; font-size: 12px;">
+                                    Connect Wiiboard
+                                </button>
+                            </form>
+                            
+                        </div>                                                                 
+                        
+               
+                        <br><br>
+
+                        <form method="post" action="/wbb" style="margin-bottom: 20px;">
+                            {% csrf_token %}
+                            
+                            <div class="container-login100-form-btn">
+
+                                <button class="login100-form-btn">
+                                    Start
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                        <form method="post" action="/data_visualisation">
+                            {% csrf_token %}
+                            <div class="container-login100-form-btn">
+                                <button class="login100-form-btn">
+                                    Data Visualisation
+                                </button>
+                            </div>
+                        </form>
+  
+                        <div class="text-left p-l-0">
+                            <a class="txt1" href="/logout">Logout</a>
+                        </div>
+                    {% else %}
+                        {% for message in messages %}
+                        <span class="login100-form-title p-b-34 p-t-27" style="color: black; font-size: 12px;">
+                            <strong>{{ message }}</strong>
+                        </span>
+                        {% endfor %}
+                
+                        <br><br>
+                        <div class="container-login100-form-btn">
+                            <a href="/register" class="login100-form-btn" style="text-decoration: none";> Register</a>
+                        </div>
+                        <br><br>
+                        <div class="container-login100-form-btn">
+                            <a href="/login" class="login100-form-btn" style="text-decoration: none;">Login</a>
+                        </div>
+                    {% endif %}
+				</form>
+			</div>
+		</div>
+	</div>
+	<div id="dropDownSelect1"></div>
+	<script src="{% static 'JS/main.js' %}"></script>
+</body>
