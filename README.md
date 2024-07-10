@@ -9,11 +9,9 @@ The second part of my work focuses on creating a website where the athlete can c
 ## Table des Matières
 
 - [Installation](#installation)
-- [Configuration](#configuration)
-- [Utilisation](#utilisation)
-- [Fonctionnalités](#fonctionnalités)
+- [Usage](#usage)
+- [Features](#features)
 - [Contribuer](#contribuer)
-- [Licence](#licence)
 - [Auteurs](#auteurs)
 - [Remerciements](#remerciements)
 
@@ -30,12 +28,33 @@ Before installing the project, make sure you have the following installed :
 
 ### Instructions
 
-virtualenv -p python3.9 venv 
-source ./venv/bin/activate  # On Windows, use `.\venv\Scripts\activate`
-git clone https://github.com/lupichon/InternshipZZ2_Sensors.git
-cd InternshipZZ2_Sensors
-pip install -r requirements.txt
-cd authentification
-python manage.py runserver
+1. virtualenv -p python3.9 venv 
+2. source ./venv/bin/activate  # On Windows, use .\venv\Scripts\activate
+3. git clone https://github.com/lupichon/InternshipZZ2_Sensors.git
+4. cd InternshipZZ2_Sensors
+5. pip install -r requirements.txt
+6. cd authentification
+7. python manage.py runserver
+8. Then, open your web browser and go to http://127.0.0.1:8000/ to view the application.
 
-Then, open your web browser and go to http://127.0.0.1:8000/ to view the application.
+## Usage
+
+### Sensors directory
+This directory contains the source code for configuring the ESP32 Dev Kit V1 board connected with the MPU-6050 and MAX4466 sensors. Within this directory, there is a main folder containing a list of drivers and the main program written using the Arduino IDE.
+
+- Bluetooth driver (driver_bluetooth.hpp and driver_bluetooth.cpp)
+
+- Accelerometer driver (driver_accelerometer.hpp and driver_accelerometer.cpp)
+
+- Mahony driver (driver_mahony.hpp and driver_mahony.cpp)
+
+- Microphone driver (driver_microphone.hpp and driver_microphone.cpp)
+
+- Main program (main.ino)
+
+
+
+## Features
+
+
+
