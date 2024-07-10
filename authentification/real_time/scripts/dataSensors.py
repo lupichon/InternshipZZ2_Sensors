@@ -1,9 +1,6 @@
 import bluetooth
 import time
 import struct
-import socket
-import numpy as np
-import matplotlib.pyplot as plt
 
 find = True
 finish = False
