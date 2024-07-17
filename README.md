@@ -107,7 +107,7 @@ authentification/<br>
 
 #### Applications 
 
-##### app #####
+- **app**
 
 This application is designed to manage user authentication and registration processes efficiently. It includes features such as user registration with validation checks for username and email uniqueness, password confirmation, and sending confirmation emails for account activation. Users can securely log in using their credentials and are greeted with personalized messages upon successful authentication. The application also supports user logout functionality, ensuring secure session management. Email confirmation links are utilized to activate user accounts securely. Overall, this application provides a robust and user-friendly interface for managing user accounts and ensuring smooth authentication and registration experiences.
 
@@ -119,37 +119,41 @@ This application facilitates post-training visualisation and analysis of sensor 
 
 This application triggers threads upon button presses to initiate Bluetooth connection between the computer and sensors, followed by data collection. The threads execute functions located in the scripts directory of the application.
 
-**Wiiboard thread** : The thread executes the main function from the *main.py* file. This file continuously updates the coordinates of the center of gravity measured by the Wiiboard based on data collected by the *wiiboard.py* file, which handles the collection of pressure sensor data.
+Wiiboard thread : The thread executes the main function from the *main.py* file. This file continuously updates the coordinates of the center of gravity measured by the Wiiboard based on data collected by the *wiiboard.py* file, which handles the collection of pressure sensor data.
 
-**Sensors thread** : The second thread executes the main function of the *dataSensor.py*. This function retrieves data sent by the ESP32 microcontroller. The data is in bytes and represents the values measured by the microphone and the quaternions measured by the MPU-6050 sensor.<br>
-<br>
+Sensors thread : The second thread executes the main function of the *dataSensor.py*. This function retrieves data sent by the ESP32 microcontroller. The data is in bytes and represents the values measured by the microphone and the quaternions measured by the MPU-6050 sensor.
 
 The application also triggers another thread that facilitates saving data within an interval centered around the moment of shooting.
 
-#### static
+#### Static
 
 The static directory is used to store static files such as CSS, JavaScript, images, and other assets that are used to style and enhance the functionality of the web pages rendered by the application. I will briefly explain the functionalities of each JS file.
 
 *sendParameters.js* : Sends to the server at regular intervals the data for various parameters on which the user can interact(calibration, movement amplification...).
 
-- **Wiiboard**
-
 *wiiboard.js* : Manages the interface for visualising the center of gravity in real-time.
+
 *visualisationPoint.js* : Retrieves center of gravity data from the selected shot and session using AJAX request.
+
 *visualisationWiiboard.js* : Manages the post-training interface for visualising the center of gravity of the shot selected.
+
 *visualisationWiiboardSession.js* : Manages the post-training interface for visualising all the center of gravity during the training session of the shot selected.
 
-- **MPU-6050**
-
 *rifle.js* : Manages the real-time interface for visualising the orientation (3D interface).
+
 *orientation.js* : Manages the real-time interface for visualising the orientation (2D interface).
+
 *stability.js* : Manages the real-time interface for visualising the stability.
+
 *visualisationRifle.js* : Retrieves MPU-6050 data from the selected shot and session using the AJAX request.
+
 *visualisationRifleGraph.js* : Manages the post-training interface for the orientation (3D interface).
+
 *visualisationOrientation.js* : Manages the post-training interface for the orientation (2D interface).
+
 *visualisationStability.js* : Manages the post-training interface for the satability. 
 
-#### templates
+#### Templates
 
 The templates directory in a Django project is used to store HTML template files that define the structure and layout of the web pages rendered by the application.
 
@@ -161,15 +165,15 @@ The manage.py file is a command-line utility that allows you to interact with th
 
 This paragraph describes the functionalities of the application.
 
-### Authentification system ###
+### Authentification system 
 
 The application features an authentication system where users can create an account by entering the following fields after clicking on the *Register* button: first name, last name, username, Gmail address, and password. Once the fields are entered, the user will receive a link via email that they must click to activate their account. After activation, they can log in by clicking the *Login* button, which redirects them to a page where they can choose between real-time data visualisation or post-training data visualisation.
 
-### Real-time visualisation ###
+### Real-time visualisation
 
 This page is accessible after connecting the different sensors using the *Connect Sensors* and *Connect Wiiboard* buttons. To connect the sensors (microphone and MPU-6050), simply power the ESP32 board and click the *Connect Sensors* button. To connect the Wiiboard, press the *Connect Wiiboard* button and quickly press the red synchronization button located in the battery compartment. Validation or error messages will appear based on the success of the operation. Afterward, the real-time visualisation page becomes accessible via the *Start* button. On this page, you will find various interfaces corresponding to the different sensor modules. 
 
-#### Wiiboard interface #### 
+#### Wiiboard interface 
 
 This interface allows you to visualize the center of gravity of the person located on the balance.
 
@@ -181,9 +185,9 @@ This interface allows you to visualize the center of gravity of the person locat
 - *Calibrate button* : Allows to reset the center of gravity to ce the center of the interface, in the position (0, 0).
 - *Slider* : Determines the number of square in the grid. 
 
-#### MPU-6050 interface#### 
+#### MPU-6050 interface
 
-##### Orientation (3D) #####
+##### Orientation (3D) 
 
 This is the first interface that allows you to visualise the orientation of the MPU-6050. This interface is in 3D. The advantage of the interface it's that the MPU-6050 can be positioned on the rifle but also on any part of the body. 
 
@@ -194,21 +198,38 @@ This is the first interface that allows you to visualise the orientation of the 
 - *Calibrate button* : It calibrates the relative coordinate system. The goal is to allow the athlete to find an ideal position (of the rifle or body part in question) during their shot. Once this position is found, the calibration button resets the moving coordinate system to zero (aligning both coordinate systems). From then on, the athlete aims to perfectly align the two coordinate systems during subsequent shots. If achieved, the rifle or body part where the sensor is located is in the desired position.
 * *Slider* : Moving the slider to the right increases the amplification of rotations applied to the model, requiring the athlete to be more precise in their movements.
 
-##### Orientation (2D) #####
+##### Orientation (2D) 
 
 This is the second interface for the visualisation of the orientation, in 2D this time. The calibration button and the slider that we mentioned previously also interact with this interface.
 
 - *Absolute indicators* : Three indicators are fixed. 
 - *Relative indicators* : The other indicators are relative to the MPU-6050 and represent the angles of rotations around the three axis(Yaw, Pitch and Roll). 
 
-##### Stability #####
+##### Stability 
 
-This is the last interface for the MPU-6050. It manages stability. The interface is a chart with an orange curve that represents stability over time. The more significant the movements of the MPU-6050, the higher the value of the curve. Here also there is a slider to amplify the small moovement. 
+This is the last interface for the MPU-6050. It manages stability. The interface is a chart with an orange curve that represents stability over time. The more significant the movements of the MPU-6050, the higher the value of the curve. Here also there is a slider to amplify the small moovements. 
 
-### Post-training visualisation ###
+### Post-training visualisation 
 
+This page is accessible by clicking on the *Data Visualisation* button after logging in. First, you need to select the session ID and the shot number of the shot you want to visualise. If the session ID and the shot ID correspond, you will be redirected to the post-training visualisation page, where you will also find different interfaces for the sensors.
 
+#### Wiiboard interface
 
+Two interfaces are relative to the wiiboard. 
+
+- **Visualisation of the selected shot** : This is the first interface where you can visualise the point you have previously selected. The center of gravity at the moment of the shot is represented by a black point. The tail allows you to relive the shot in an interval centered around the shot. The color of the tail changes to indicate the passage of time.
+
+- **Visulisation of all the point of the selected session** : The second interface related to the Wiiboard contains the centers of gravity for all the shots in the session. The points are numbered in the order of the shots and are clickable. Once clicked, they appear on the first interface with the tail, allowing comparisons between the points.
+
+#### MPU-6050 interface 
+
+##### Orientation 
+
+For the two interfaces allowing the visualisation of orientation, you will find the same elements as in the real-time interface. However, it is possible here to replay the movements at the moment of the shot using the slider and buttons located just above. Initially, the slider's cursor is centered, representing the moment of the shot. To the left of the center, the data corresponds to before the shot. To the right, it's after the shot. The slider can be moved to replay the data as desired, or you can use the play/stop button to start or stop the data replay. The button with the target icon allows you to visualise the moment of the shot.
+
+##### Stability 
+
+The interface here also closely resembles the real-time one. However, it includes additional dashed lines indicating stability during the shot. To the left of these dashed lines is the stability before the shot, and to the right is the stability after the shot.
 
 
 
