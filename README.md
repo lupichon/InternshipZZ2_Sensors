@@ -60,7 +60,7 @@ This Django project is organized into multiple applications. Below is a descript
 authentification/<br>
 ├── app/<br>
 │   ├── migrations/<br>
-│   ├── '__init__'.py<br>
+│   ├── `__init__`.py<br>
 │   ├── admin.py<br>
 │   ├── apps.py<br>
 │   ├── models.py<br>
@@ -69,7 +69,7 @@ authentification/<br>
 │   └── urls.py<br>
 ├── data_visualisation/<br>
 │   ├── migrations/<br>
-│   ├── '__init__'.py<br>
+│   ├── `__init__`.py<br>
 │   ├── admin.py<br>
 │   ├── apps.py<br>
 │   ├── models.py<br>
@@ -79,7 +79,7 @@ authentification/<br>
 ├── real_time/<br>
 │   ├── migrations/<br>
 │   ├── scripts/<br>
-│   ├── '__init__'.py<br>
+│   ├── `__init__`.py<br>
 │   ├── admin.py<br>
 │   ├── apps.py<br>
 │   ├── models.py<br>
@@ -87,7 +87,7 @@ authentification/<br>
 │   ├── views.py<br>
 │   └── urls.py<br>
 ├── authentification/<br>
-│   ├── '__init__'.py<br>
+│   ├── `__init__`.py<br>
 │   ├── settings.py<br>
 │   ├── urls.py<br>
 │   └── wsgi.py<br>
@@ -107,7 +107,7 @@ authentification/<br>
 
 #### Applications 
 
-- **app**
+##### app #####
 
 This application is designed to manage user authentication and registration processes efficiently. It includes features such as user registration with validation checks for username and email uniqueness, password confirmation, and sending confirmation emails for account activation. Users can securely log in using their credentials and are greeted with personalized messages upon successful authentication. The application also supports user logout functionality, ensuring secure session management. Email confirmation links are utilized to activate user accounts securely. Overall, this application provides a robust and user-friendly interface for managing user accounts and ensuring smooth authentication and registration experiences.
 
