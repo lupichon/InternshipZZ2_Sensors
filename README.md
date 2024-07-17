@@ -70,54 +70,79 @@ This Django project is organized into multiple applications to facilitate code m
 
 #### Directory structure
 
-authentification/
-├── app/
-│   ├── migrations/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── views.py
-│   └── urls.py
-├── data_visualisation/
-│   ├── migrations/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── views.py
-│   └── urls.py
-├── real_time/
-│   ├── migrations/
-│   ├── scripts/
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py
-│   ├── tests.py
-│   ├── views.py
-│   └── urls.py
-├── authentification/
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-├── static
-│   ├── CSS/
-│   ├── FONT/
-│   ├── IMAGES/
-│   ├── JS/
-│   └── PROCESSING/
-├── templates
-│   ├── app/
-│   ├── data_visualisation/
-│   ├── real_time/
-│   ├── emailconfirm.html/
-│   └── base.html
-├── manage.py
+authentification/<br>
+├── app/<br>
+│   ├── migrations/<br>
+│   ├── __init__.py<br>
+│   ├── admin.py<br>
+│   ├── apps.py<br>
+│   ├── models.py<br>
+│   ├── tests.py<br>
+│   ├── views.py<br>
+│   └── urls.py<br>
+├── data_visualisation/<br>
+│   ├── migrations/<br>
+│   ├── __init__.py<br>
+│   ├── admin.py<br>
+│   ├── apps.py<br>
+│   ├── models.py<br>
+│   ├── tests.py<br>
+│   ├── views.py<br>
+│   └── urls.py<br>
+├── real_time/<br>
+│   ├── migrations/<br>
+│   ├── scripts/<br>
+│   ├── __init__.py<br>
+│   ├── admin.py<br>
+│   ├── apps.py<br>
+│   ├── models.py<br>
+│   ├── tests.py<br>
+│   ├── views.py<br>
+│   └── urls.py<br>
+├── authentification/<br>
+│   ├── __init__.py<br>
+│   ├── settings.py<br>
+│   ├── urls.py<br>
+│   └── wsgi.py<br>
+├── static<br>
+│   ├── CSS/<br>
+│   ├── FONT/<br>
+│   ├── IMAGES/<br>
+│   ├── JS/<br>
+│   └── PROCESSING/<br>
+├── templates<br>
+│   ├── app/<br>
+│   ├── data_visualisation/<br>
+│   ├── real_time/<br>
+│   ├── emailconfirm.html/<br>
+│   └── base.html<br>
+├── manage.py<br>
 
+#### Applications 
+
+- **app**
+
+This application manages the authentication and login process for a user to the web application.
+
+- **data_visualisation**
+
+This application manages the post-training visualisation part. 
+
+- **real_time**
+
+This application manages the real_time visualisation part. 
+
+#### static
+
+The static directory is used to store static files such as CSS, JavaScript, images, and other assets that are used to style and enhance the functionality of the web pages rendered by the application.
+
+#### templates
+
+The templates directory in a Django project is used to store HTML template files that define the structure and layout of the web pages rendered by the application.
+
+#### manage.py
+
+The manage.py file is a command-line utility that allows you to interact with this Django project in various ways. For example, you can use it to start a development server, synchronize the database, create migrations, and much more.
 
 ## Features
 
