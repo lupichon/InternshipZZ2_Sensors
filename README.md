@@ -40,25 +40,15 @@ Before installing the project, make sure you have the following installed :
 
 This directory contains the source code for configuring the ESP32 Dev Kit V1 board connected with the MPU-6050 and MAX4466 sensors. Within this directory, there is a main folder containing a list of drivers and the main program written using the Arduino IDE.
 
-- **Bluetooth driver** (driver_bluetooth.hpp and driver_bluetooth.cpp)
+- **Bluetooth driver** (driver_bluetooth.hpp and driver_bluetooth.cpp) : This driver configures the microcontroller's Bluetooth interface using the Arduino BluetoothSerial library. It also includes the function for sending data via Bluetooth.
 
-This driver configures the microcontroller's Bluetooth interface using the Arduino BluetoothSerial library. It also includes the function for sending data via Bluetooth.
+- **Accelerometer driver** (driver_accelerometer.hpp and driver_accelerometer.cpp) : This driver first initializes the MPU-6050 by configuring the connection via the I2C bus. It also sets up the operational parameters of the sensor, such as the sampling rate and the range for reading acceleration and gyroscope data. Additionally, it implementes a function to read data from the MPU-6050.
 
-- **Accelerometer driver** (driver_accelerometer.hpp and driver_accelerometer.cpp)
+- **Mahony driver** (driver_mahony.hpp and driver_mahony.cpp) : This driver implements the Mahony algorithm, which calculates quaternions using gyroscope and accelerometer values from the MPU-6050.
 
-This driver first initializes the MPU-6050 by configuring the connection via the I2C bus. It also sets up the operational parameters of the sensor, such as the sampling rate and the range for reading acceleration and gyroscope data. Additionally, it implementes a function to read data from the MPU-6050.
+- **Microphone driver** (driver_microphone.hpp and driver_microphone.cpp) : This driver implements the function to read MAX4466 values. 
 
-- **Mahony driver** (driver_mahony.hpp and driver_mahony.cpp)
-
-This driver implements the Mahony algorithm, which calculates quaternions using gyroscope and accelerometer values from the MPU-6050.
-
-- **Microphone driver** (driver_microphone.hpp and driver_microphone.cpp)
-
-This driver implements the function to read MAX4466 values. 
-
-- **Main program** (main.ino)
-
-The main program begins by initializing the Bluetooth interface and the MPU-6050. Then, it loops through the following code: reading data from the microphone, reading data from the MPU6050, transforming this data into quaternions using the Mahony algorithm, and transmitting it via Bluetooth.
+- **Main program** (main.ino) : The main program begins by initializing the Bluetooth interface and the MPU-6050. Then, it loops through the following code: reading data from the microphone, reading data from the MPU6050, transforming this data into quaternions using the Mahony algorithm, and transmitting it via Bluetooth.
 
 ### Authentification directory
 
