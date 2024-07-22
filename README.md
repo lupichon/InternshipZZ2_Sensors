@@ -1,4 +1,4 @@
-# Developement of a sensor suite to aid atlete training for the ISSF 10 meter air rifle event
+# Developement of a sensor suite to aid athlete training for the ISSF 10 meter air rifle event
 
 10-meter air rifle shooting is a demanding discipline requiring exceptional precision and perfect mastery of technique. To enhance athletes' performance in this discipline, it is crucial to understand in detail the movements of the athlete's body as well as those of their rifle, as they can affect shooting accuracy. Various sensors offer the possibility to collect precise data on these movements and identify errors that the athlete could correct to improve their performance.
 
@@ -60,7 +60,7 @@ This Django project is organized into multiple applications. Below is a descript
 authentification/<br>
 ├── app/<br>
 │   ├── migrations/<br>
-│   ├── `__init__`.py<br>
+│   ├── init.py<br>
 │   ├── admin.py<br>
 │   ├── apps.py<br>
 │   ├── models.py<br>
@@ -69,7 +69,7 @@ authentification/<br>
 │   └── urls.py<br>
 ├── data_visualisation/<br>
 │   ├── migrations/<br>
-│   ├── `__init__`.py<br>
+│   ├── init.py<br>
 │   ├── admin.py<br>
 │   ├── apps.py<br>
 │   ├── models.py<br>
@@ -79,7 +79,7 @@ authentification/<br>
 ├── real_time/<br>
 │   ├── migrations/<br>
 │   ├── scripts/<br>
-│   ├── `__init__`.py<br>
+│   ├── init.py<br>
 │   ├── admin.py<br>
 │   ├── apps.py<br>
 │   ├── models.py<br>
@@ -87,7 +87,7 @@ authentification/<br>
 │   ├── views.py<br>
 │   └── urls.py<br>
 ├── authentification/<br>
-│   ├── `__init__`.py<br>
+│   ├── init.py<br>
 │   ├── settings.py<br>
 │   ├── urls.py<br>
 │   └── wsgi.py<br>
