@@ -16,9 +16,5 @@ void sendData()
   memcpy(buffer + sizex3, &q[2], size);
   memcpy(buffer + sizex4, &q[3], size);
 
-  double start = millis();
   SerialBT.write(buffer,sizex5);
-  double end = millis();
-
-  Serial.println(end-start);
 }
